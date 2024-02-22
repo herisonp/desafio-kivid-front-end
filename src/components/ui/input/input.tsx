@@ -22,7 +22,7 @@ export function Input({
 	return (
 		<>
 			<InputWrapper className={className}>
-				<InputLabel htmlFor={id}>{label}</InputLabel>
+				<InputLabel htmlFor={name}>{label}</InputLabel>
 				<InputElement $withLabel={!!label} id={id} name={name} {...props} />
 			</InputWrapper>
 			{errorMessage && (

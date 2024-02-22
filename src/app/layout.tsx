@@ -21,7 +21,11 @@ export default function RootLayout({
 	return (
 		<html lang='pt-BR'>
 			<body className={redHatDisplay.className}>
-				<StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+				<StyledComponentsRegistry>
+					<div className='min-h-screen felx flex-col bg-[#F2F4F5]'>
+						{children}
+					</div>
+				</StyledComponentsRegistry>
 			</body>
 		</html>
 	);

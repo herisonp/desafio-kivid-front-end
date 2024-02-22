@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const InputElement = styled.input<{ $withLabel?: boolean }>`
 	outline: none;
 	border: 1px solid #e7e8e9;
-	color: #777f83;
+	color: #4b565b;
 	padding: 1rem;
 	padding-top: ${({ $withLabel }) => ($withLabel ? '2.75rem' : '1rem')};
 	font-size: 1.25rem;
@@ -24,5 +24,6 @@ export const InputElement = styled.input<{ $withLabel?: boolean }>`
 
 	&:disabled {
 		cursor: default;
+		background-color: transparent;
 	}
 `;

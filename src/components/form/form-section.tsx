@@ -4,9 +4,11 @@ import FormAddress from './form-address';
 
 export function FormSection() {
 	return (
-		<section className='pt-8 pb-32'>
-			<Title>Cadastre seu endereço</Title>
-			<Subtitle>Complete seu cadastro com seu endereço</Subtitle>
+		<section className='pt-8 pb-32 flex flex-col gap-4'>
+			<div>
+				<Title>Cadastre seu endereço</Title>
+				<Subtitle>Complete seu cadastro com seu endereço</Subtitle>
+			</div>
 
 			<FormAddress />
 		</section>

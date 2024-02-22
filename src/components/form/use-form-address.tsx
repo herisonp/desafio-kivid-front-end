@@ -1,6 +1,6 @@
 'use client';
 import { getAddressPerCep } from '@/functions/get-address-per-cep';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 interface AddressProps {
 	cep: string;
@@ -15,6 +15,7 @@ export function useFomAddress() {
 	const [cep, setCep] = useState<string>('');
 	const [error, setError] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [success, setSuccess] = useState<boolean>(false);
 
 	useEffect(() => {
 		async function getAddress() {
@@ -39,11 +40,30 @@ export function useFomAddress() {
 		getAddress();
 	}, [cep]);
 
+	function handleSubmit(event: FormEvent<HTMLFormElement>) {
+		event.preventDefault();
+		setIsLoading(true);
+
+		// const formData = new FormData(event.currentTarget);
+		// const data = {
+		// 	...address,
+		// 	number: formData.get('number')?.toString(),
+		// 	complement: formData.get('complement')?.toString()
+		// };
+
+		event.currentTarget.reset();
+		setCep('');
+		setSuccess(true);
+		setIsLoading(false);
+	}
+
 	return {
 		address,
 		cep,
 		setCep,
 		error,
-		isLoading
+		isLoading,
+		handleSubmit,
+		success
 	};
 }

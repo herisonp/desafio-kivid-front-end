@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio de Frontend - Kivid
 
-## Getting Started
+<div align="center">
+  <img alt="Projeto Homeland - TripleTen" src=".github/thumbnail.jpg" width="100%">
+</div>
 
-First, run the development server:
+## Inicie o projeto localmente
+
+Após fazer o clone do repositório, faça a instalação das dependências com o comando:
+
+```bash
+npm install
+```
+
+Em seguida inicie o Next no modo desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+E acesse por http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Storybook
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Para iniciar o Storybook, execute:
 
-## Learn More
+```bash
+npm run storybook
+```
 
-To learn more about Next.js, take a look at the following resources:
+Acesse através http://localhost:6006
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sobre o desafio
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+O objetivo principal do desafio proposto foi desenvolver uma aplicação utilizando um CEP para obter o endereço completo via API dos Correios (ViaCep ou BrasilAPI).
 
-## Deploy on Vercel
+Além disso, precisava fazer uso de tecnologia como Next, Typescript, Tailwindcss, Styled Components e Storybook.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Solução
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Layout
+
+Como o desafio não fazia sugestão de nenhum layout, resolvi criar um formulário e utilizar como base componentes parecidos com o que a Kivid já utiliza em seu site.
+
+#### Componentização
+
+Criei os principais componentes que mais se repetiam e/ou poderiam se repetir em escala, utilizando Styled Components. Com isso, os elementos ganham consistência e melhor manutenibilidade.
+
+Já o Tailwindcss, usei suas classes modificadoras como um "layoutador". Isso quer dizer que, dei prioridade para estilizar estrutura e posicionamento dos componentes.
+
+#### Consulta de API
+
+Para lidar com as consultas dos CEPs, resolvi utilizar a BrasilAPI, que trás mais informações de erros em seus retornos e por ter um padrão de inglês para o nome de suas chaves de objeto retornado.
+
+Na função de consulta, criei utilizando o recurso de server side do Next, que faz toda parte de cacheamento dos dados, onde escolhi colocar um revalidate de 1 dia. Fazendo com que o endereço fique no cache do nosso servidor, deixando nossa aplicação mais rápida e leve.
+
+#### Demais informações
+
+Além dos detalhes mencionados acima:
+
+- fiz uso de biblioteca para formatar CEP (@utils-fns/mask)
+- Criei um hook chamado useFormAddress para lidar com toda as funcionalidades do formulário
+- Fiz uso de useState e useEffects para trabalhar estados da aplicação no lado do cliente
+

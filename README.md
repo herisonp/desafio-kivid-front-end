@@ -4,6 +4,12 @@
   <img alt="Projeto Homeland - TripleTen" src=".github/thumbnail.jpg" width="100%">
 </div>
 
+## Veja online
+
+[💻 Deploy](https://herison-kivid.vercel.app) -
+[📕 Storybook](https://herison-kivid-sb.vercel.app) -
+[🎨 Figma](https://www.figma.com/file/IArvuvfP6XWjx3Xs2xYdio/%5BKivid%5D-Desafio---Formul%C3%A1rio-de-endere%C3%A7o?type=design&node-id=0%3A1&mode=design&t=NZJYgNqX9l9cGbKP-1)
+
 ## Inicie o projeto localmente
 
 Após fazer o clone do repositório, faça a instalação das dependências com o comando:
@@ -61,4 +67,3 @@ Além dos detalhes mencionados acima:
 - fiz uso de biblioteca para formatar CEP (@utils-fns/mask)
 - Criei um hook chamado useFormAddress para lidar com toda as funcionalidades do formulário
 - Fiz uso de useState e useEffects para trabalhar estados da aplicação no lado do cliente
-

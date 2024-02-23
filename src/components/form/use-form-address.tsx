@@ -20,13 +20,13 @@ export function useFomAddress() {
 	useEffect(() => {
 		async function getAddress() {
 			setError(null);
-			setSuccess(false);
 			const isValid = cep.length >= 9;
 			if (!isValid) {
 				setAddress(null);
 				return;
 			}
 			try {
+				setSuccess(false);
 				setIsLoading(true);
 				const { error, address: addressData } = await getAddressPerCep(cep);
 				if (error) throw error;

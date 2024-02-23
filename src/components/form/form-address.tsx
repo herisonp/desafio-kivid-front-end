@@ -41,6 +41,7 @@ export default function FormAddress() {
 						defaultValue={address?.street}
 						disabled
 						required
+						className='w-full'
 					/>
 					<Input
 						type='number'
@@ -49,6 +50,7 @@ export default function FormAddress() {
 						label='Número:'
 						placeholder='00'
 						required
+						className='md:w-1/3'
 					/>
 				</fieldset>
 				<Input
@@ -78,6 +80,7 @@ export default function FormAddress() {
 						defaultValue={address?.city}
 						disabled
 						required
+						className='w-full'
 					/>
 					<Input
 						type='text'
@@ -88,6 +91,7 @@ export default function FormAddress() {
 						defaultValue={address?.state}
 						disabled
 						required
+						className='md:w-1/3'
 					/>
 				</fieldset>
 				<Button type='submit' disabled={isLoading}>
